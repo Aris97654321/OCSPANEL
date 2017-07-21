@@ -25,24 +25,36 @@
                     <i class="fa fa-gear fa-fw"></i> Server Settings
                 </div>
                 <div class="panel-body">
-                    <form role="form" action="{{ @URI }}" method="POST">
+                    <form role="form" action="/home/admin/server/add" method="POST">
                         <div class="form-group">
                             <label>Nama Server</label>
-                            <input class="form-control" placeholder="Server Demo 1" name="servername" type="text" value="{{ @server->servername }}" required>
+                            <input class="form-control" placeholder="Server Demo 1" name="servername" type="text" value="" required="">
                         </div>
                         <div class="form-group">
                             <label>Lokasi Server</label>
-                            <input class="form-control" placeholder="Singapore" name="country" type="text" value="{{ @server->country }}" required>
+                            <input class="form-control" placeholder="Singapore" name="country" type="text" value="" required="">
                         </div>
                         <div class="form-group">
                             <label>IP / Host</label>
-                            <input class="form-control" placeholder="192.168.1.1 atau www.example-server.com" name="host" type="text" value="{{ @server->host }}" required>
+                            <input class="form-control" placeholder="192.168.1.1 atau www.example-server.com" name="host" type="text" value="" required="">
+                        </div>
+						 <div class="form-group">
+                            <label>Port Squid</label>
+                            <input class="form-control" placeholder="3128 8000 8080" name="port_squid" type="password">
+                        </div>
+						 <div class="form-group">
+                            <label>Port OpenSSH</label>
+                            <input class="form-control" placeholder="90 143 109 110" name="port_openssh" type="password">
+                        </div>
+						<div class="form-group">
+                            <label>Port Dropbear</label>
+                            <input class="form-control" placeholder="443 80 22" name="port_dropbear" type="password">
                         </div>
                         <div class="form-group">
                             <label>Harga Sewa / Bulan</label>
                             <div class="input-group">
                                 <span class="input-group-addon">Rp. </span>
-                                <input class="form-control" placeholder="10000" name="price" type="number" step="100" value="{{ @server->price }}" required>
+                                <input class="form-control" placeholder="10000" name="price" type="number" step="100" value="0" required="">
                             </div>
                         </div>
                         <div class="form-group">
@@ -50,21 +62,5 @@
                             <input class="form-control" placeholder="r0oT_p4s5wo0rD" name="root_pass" type="password">
                         </div>
                         <button class="btn btn-primary">Simpan</button>
-                        <check if="{{ @server->id }}">
-                            <check if="{{ @server->active==1 }}">
-                                <true>
-                                    <a href="{{ @URI.'/active/0' }}" class="btn btn-warning">Lock</a>
-                                </true>
-                                <false>
-                                    <a href="{{ @URI.'/active/1' }}" class="btn btn-success">Unlock</a>
-                                </false>
-                            </check>
-                            <a href="{{ @URI.'/delete' }}" class="btn btn-danger hapus">Hapus</a>
-                        </check>
-                        <a href="/home/admin/server" class="btn btn-default">Kembali</a>
+                                                <a href="/home/admin/server" class="btn btn-default">Kembali</a>
                     </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
